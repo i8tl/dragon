@@ -1,12 +1,10 @@
-try :
-    import marshal
-    import os
-    import time 
-    from time import sleep
-    import base64
-except :
-    os.system("pip install marshal")
-    os.system("pip install base64")
+from fileinput import nextfile
+import marshal
+from msilib.schema import Error 
+import os
+import time 
+from time import sleep
+import base64
 
 BBlack="\033[1;30m"       # Black
 BRed="\033[1;31m"         # Red
@@ -46,6 +44,8 @@ while True :
     print(BBlue,"|-------------------|")
     print(BBlue,"|",BGreen,"TXET > >    [4]",BBlue,"|")
     print(BBlue,"|-------------------|")
+    print(BBlue,"|",BGreen,"photo > >   [5]",BBlue,"|")
+    print(BBlue,"|-------------------|")
     print(BBlue,"|",BGreen,"EXIT > >    [0]",BBlue,"|")
     print(BBlue,"---------------------")
 
@@ -84,7 +84,7 @@ while True :
                 """,BWhite)
                     m=input("Enter number :")
                     if m=="1":
-                        file=input("Enter file name >>")
+                        file=input("Enter filw name >>")
                         rd=open(file).read()
                         nname=input("Enter new name file :")
                         om=compile(rd,"","exec")
@@ -271,7 +271,7 @@ while True :
                 
                 """,BWhite)
                 abcCSR="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-                xyzCSR="XYZABCDEFGHIJKLMNOPQRSTUVWxyzabcdefghijklmnopqrstuvw"
+                xyzCSR="DEFGHIJKLMNOPQRSTUVWXYZABCdefghijklmnopqrstuvwxyzabc"
 
                 tCSR=input("Enter Number :")
 
@@ -366,7 +366,6 @@ while True :
                     txt=input("Enter TxT :")
                     txt=denctxt(txt)
                     print(txt)
-
                 elif t=="0":
                     print(BWhite)
                     os.system('cls' if os.name == 'nt' else 'clear')
@@ -375,18 +374,84 @@ while True :
                 else :
                     print("non!")
                     
-        
+        elif x=="5":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(BYellow,"""
+          
+                    **               **********         
+            ****** /**              /////**///          
+            /**///**/**       ******     /**      ****** 
+            /**  /**/******  **////**    /**     **////**
+            /****** /**///**/**   /**    /**    /**   /**
+            /**///  /**  /**/**   /**    /**    /**   /**
+            /**     /**  /**//******     /**    //****** 
+            //      //   //  //////      //      //////  
+                                                         
+            """)
+            while True :
+                print(BPurple,"""
+                    ----------------------
+                    |encryption  > > [1] |
+                    |--------------------|
+                    |dencryption > > [2] |
+                    |--------------------|
+                    |      EXIT > >  [0] |
+                    ----------------------       
+                                            """,BWhite)
+                p=input("EnTer NumBer :")
+                
+                if p=="1":
+                    
+                    # nphot=input("Enter nnew object Fail >> ")
+                    phot=input("Enter object File >> ")
+                    def encfile(phot):
+                        
+                        with open(r"C:\Users\f\Desktop\kali.jfi","rb") as fimg:
+
+                            img=fimg.read()
+
+                        print(type(img))
+                        txt=img.decode("ansi")
+                        print(type(txt))
+                    
+                        txt=enctxt(txt)
+
+                        img=txt.encode("ansi")
+
+                        with open(phot,"wb") as fimg:
+                            fimg.write(img)
+                    nphot=input("Enter new object file :")
+                    encfile(r"C:\Users\f\Desktop\kalii.jfi")   
+
+                elif p=="2":
+                    phot=input("Enter object File >> ")
+                    nphot=input("Enter nnew object Fail >> ")
+                    def dencfile(phot):
+                        with open(phot,"rb") as fimg:
+
+                            img=fimg.read()
+
+                        print(type(img))
+                        txt=img.decode("ansi")
+                        print(type(txt))
+                    
+                        txt=denctxt(txt)
+
+                        img=txt.encode("ansi")
+
+
+                        with open(phot,"wb") as fimg:
+                            fimg.write(img)
+                    dencfile(nphot)
+                elif p=="0":
+                    print(BWhite)
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    break
         elif x=="0":
             os.system('cls' if os.name == 'nt' else 'clear')
             break
         
-    
-    
-    
-    
-    
-    
-    except KeyError:
+    except:
         os.system('cls' if os.name == 'nt' else 'clear')
         print(BRed+"""
          _______                       
@@ -398,6 +463,6 @@ while True :
                                
         
         """)
-        print(KeyError)
+        print(Error)
         print(BWhite)
         sleep(3)
